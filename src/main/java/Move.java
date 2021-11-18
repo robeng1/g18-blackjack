@@ -1,3 +1,3 @@
 public enum Move {
-    HIT, STICK, NO_MOVE
+    HIT, STICK, GO_BUST
 }

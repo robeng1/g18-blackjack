@@ -44,7 +44,6 @@ public class Game {
     public void makeWinner() {
         if (this.gameState == GameState.FINISH) {
             List<Player> currentPlayers = this.players.stream().sorted(new PlayerSorter()).collect(Collectors.toList());
-            System.out.println(currentPlayers);
             for (Player p : currentPlayers) {
                 if (p.getTotal() < 21) {
                     this.winner = p;
@@ -85,7 +84,7 @@ public class Game {
                     player.deal(card);
                     this.dealtCards.add(card);
                     plays.add(new Play(player, player.getMove()));
-                } else if (player.getMove() == Move.NO_MOVE) {
+                } else if (player.getMove() == Move.GO_BUST) {
                     this.bustedPlayers.add(player);
                     this.players.remove(player);
                     plays.add(new Play(player, player.getMove()));
@@ -135,9 +134,18 @@ public class Game {
         for (Round round :
                 this.rounds) {
             System.out.println(round);
+            System.out.println("\n");
         }
         if (this.winner != null) {
-            System.out.println("THE GAME WAS WON BY:  " + this.winner.getName().toUpperCase());
+            System.out.println("THE GAME WAS WON BY:  " + this.winner.getName().toUpperCase() + " WITH A TOTAL OF:" + this.winner.getTotal());
+            System.out.println("\n");
+        }
+        if (this.bustedPlayers.size() > 0) {
+            System.out.println("The following players were busted");
+            for (Player player : this.bustedPlayers) {
+                System.out.println(player);
+            }
+            System.out.println("\n");
         }
 //        System.out.println(this.players);
 //        System.out.println(this.bustedPlayers);
@@ -147,3 +155,11 @@ public class Game {
 
 // Game finished playing in 4 rounds
 // Player
+
+/*
+TODO
+1.
+
+
+
+ */

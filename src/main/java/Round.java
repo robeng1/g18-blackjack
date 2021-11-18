@@ -6,7 +6,7 @@ public class Round {
 
     @Override
     public String toString() {
-        return "Round: " + this.round + "comprised the following moves  \n" + this.plays;
+        return "Round: " + this.round + " comprised the following moves  \n" + this.plays;
     }
 
     public Round(int round, List<Play> plays) {

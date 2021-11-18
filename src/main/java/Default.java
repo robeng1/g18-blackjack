@@ -10,7 +10,7 @@ public class Default extends Strategy {
         int sumOfDeck = deck.stream().mapToInt(d -> d.getValue().getVal()).sum();
         if (sumOfDeck < 17) return Move.HIT;
         if (sumOfDeck < 21) return Move.STICK;
-        return Move.NO_MOVE;
+        return Move.GO_BUST;
     }
 
     @Override

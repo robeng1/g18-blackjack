@@ -8,7 +8,7 @@ public class AlwaysStick extends Strategy {
     @Override
     public Move getNextMove(List<Card> deck) {
         int sumOfDeck = deck.stream().mapToInt(d -> d.getValue().getVal()).sum();
-        if (sumOfDeck > 21) return Move.NO_MOVE;
+        if (sumOfDeck > 21) return Move.GO_BUST;
         return Move.STICK;
     }
 

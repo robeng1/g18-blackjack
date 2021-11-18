@@ -8,7 +8,7 @@ public abstract class Strategy {
     }
 
     Move getNextMove(List<Card> deck) {
-        return Move.NO_MOVE;
+        return Move.GO_BUST;
     }
 
     String getName() {
