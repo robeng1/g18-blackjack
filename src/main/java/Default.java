@@ -8,8 +8,8 @@ public class Default extends Strategy {
     @Override
     public Move getNextMove(List<Card> deck) {
         int sumOfDeck = deck.stream().mapToInt(d -> d.getValue().getVal()).sum();
-        if(sumOfDeck < 17) return Move.HIT;
-        if(sumOfDeck < 21) return Move.STICK;
+        if (sumOfDeck < 17) return Move.HIT;
+        if (sumOfDeck < 21) return Move.STICK;
         return Move.NO_MOVE;
     }
 

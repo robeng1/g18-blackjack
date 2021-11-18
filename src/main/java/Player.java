@@ -3,7 +3,13 @@ import java.util.List;
 
 public class Player {
     private String name;
-    private List<Card> deck = new ArrayList<>();
+    private final List<Card> deck = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
     private Strategy strategy;
 
     public Player(String name, Strategy strategy) {
@@ -11,8 +17,16 @@ public class Player {
         this.strategy = strategy;
     }
 
-    public void deal(Card ...cards){
+    public List<Card> getDeck() {
+        return this.deck;
+    }
+
+    public void deal(Card... cards) {
         this.deck.addAll(List.of(cards));
+    }
+
+    public int getTotal() {
+        return this.deck.stream().mapToInt(d -> d.getValue().getVal()).sum();
     }
 
     public String getName() {

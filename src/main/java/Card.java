@@ -2,6 +2,14 @@ public class Card {
     private Suit suit;
     private Value value;
 
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit=" + suit +
+                ", value=" + value +
+                '}';
+    }
+
     public Card(Suit suit, Value value) {
         this.suit = suit;
         this.value = value;
