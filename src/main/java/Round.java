@@ -6,7 +6,13 @@ public class Round {
 
     @Override
     public String toString() {
-        return "Round: " + this.round + " comprised the following moves  \n" + this.plays;
+        StringBuilder str = new StringBuilder();
+        str.append("Round: ").append(this.round).append(" comprised the following moves  \n");
+        for (Play play :
+                this.plays) {
+            str.append(play.toString()).append("\n");
+        }
+        return str.toString();
     }
 
     public Round(int round, List<Play> plays) {

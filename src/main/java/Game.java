@@ -131,6 +131,8 @@ public class Game {
 //                System.out.println(entry.getValue().size() + " " + entry.getKey() + " " + entry.getValue());
 //            }
 //        }
+        System.out.println("********************************* DETAILED GAME STATISTICS *********************************");
+        System.out.println("Number of rounds played: " + this.rounds.size());
         for (Round round :
                 this.rounds) {
             System.out.println(round);
@@ -143,7 +145,7 @@ public class Game {
         if (this.bustedPlayers.size() > 0) {
             System.out.println("The following players were busted");
             for (Player player : this.bustedPlayers) {
-                System.out.println(player);
+                System.out.println(player + " with a total of " + player.getTotal());
             }
             System.out.println("\n");
         }
