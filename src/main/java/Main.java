@@ -66,6 +66,3 @@ public class Main {
         game.printReport();
     }
 }
-
-
-// Refactor into packages
