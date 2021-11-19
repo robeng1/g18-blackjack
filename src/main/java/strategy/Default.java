@@ -1,3 +1,9 @@
+package strategy;
+
+import black.Card;
+import enums.Move;
+import strategy.Strategy;
+
 import java.util.List;
 
 public class Default extends Strategy {
@@ -6,7 +12,7 @@ public class Default extends Strategy {
     }
 
     @Override
-    public Move getNextMove(List<Card> deck) {
+    public Move calculateNextMove(List<Card> deck) {
         int sumOfDeck = deck.stream().mapToInt(d -> d.getValue().getVal()).sum();
         if (sumOfDeck < 17) return Move.HIT;
         if (sumOfDeck < 21) return Move.STICK;

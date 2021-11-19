@@ -1,3 +1,7 @@
+package black;
+
+import enums.Move;
+
 public class Play {
     private Player player;
     private Move move;

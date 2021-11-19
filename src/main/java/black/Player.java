@@ -1,9 +1,15 @@
+package black;
+
+import black.Card;
+import enums.Move;
+import strategy.Strategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
     private String name;
-    private final List<Card> deck = new ArrayList<>();
+    private final List<Card> hand = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -17,16 +23,20 @@ public class Player {
         this.strategy = strategy;
     }
 
-    public List<Card> getDeck() {
-        return this.deck;
+    public boolean isBusted() {
+        return this.getTotal() > 21;
+    }
+
+    public List<Card> getHand() {
+        return this.hand;
     }
 
     public void deal(Card... cards) {
-        this.deck.addAll(List.of(cards));
+        this.hand.addAll(List.of(cards));
     }
 
     public int getTotal() {
-        return this.deck.stream().mapToInt(d -> d.getValue().getVal()).sum();
+        return this.hand.stream().mapToInt(d -> d.getValue().getVal()).sum();
     }
 
     public String getName() {
@@ -45,8 +55,8 @@ public class Player {
         this.strategy = strategy;
     }
 
-    Move getMove() {
-        return this.strategy.getNextMove(this.deck);
+    public Move getMove() {
+        return this.strategy.calculateNextMove(this.hand);
     }
 
 }

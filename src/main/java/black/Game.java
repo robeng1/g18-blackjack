@@ -1,3 +1,10 @@
+package black;
+
+import enums.GameState;
+import enums.Move;
+import enums.Suit;
+import enums.Value;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +27,7 @@ public class Game {
         this.generateGameDeck();
     }
 
-    private void setGameState(Round round) {
+    private void updateGameState(Round round) {
         if (round.isAllStick()) {
             this.gameState = GameState.FINISH;
             this.makeWinner();
@@ -94,39 +101,39 @@ public class Game {
             }
             Round round = new Round(this.rounds.size() + 1, plays);
             this.rounds.add(round);
-            this.setGameState(round);
+            this.updateGameState(round);
         }
 
 
     }
 
     public void printReport() {
-//        for (Player player : this.players) {
-//            Map<Suit, List<Card>> cardsByType = player.getDeck().stream()
-//                    .collect(groupingBy(Card::getSuit));
+//        for (black.Player player : this.players) {
+//            Map<enums.Suit, List<black.Card>> cardsByType = player.getDeck().stream()
+//                    .collect(groupingBy(black.Card::getSuit));
 //            System.out.println(player.getName() + " IS DEALT: \n");
-//            for (Map.Entry<Suit, List<Card>> entry : cardsByType.entrySet()) {
+//            for (Map.Entry<enums.Suit, List<black.Card>> entry : cardsByType.entrySet()) {
 ////                StringBuilder str = new StringBuilder();
 //
 ////                str.append(entry.getValue().size());
 //
-////                Map<Value, List<Card>> cardsByValue = entry.getValue().stream()
-////                        .collect(groupingBy(Card::getValue));
+////                Map<enums.Value, List<black.Card>> cardsByValue = entry.getValue().stream()
+////                        .collect(groupingBy(black.Card::getValue));
 //
 //                System.out.println(entry.getValue().size() + " " + entry.getKey() + " " + entry.getValue());
 //            }
 //        }
-//        for (Player player : this.bustedPlayers) {
-//            Map<Suit, List<Card>> cardsByType = player.getDeck().stream()
-//                    .collect(groupingBy(Card::getSuit));
+//        for (black.Player player : this.bustedPlayers) {
+//            Map<enums.Suit, List<black.Card>> cardsByType = player.getDeck().stream()
+//                    .collect(groupingBy(black.Card::getSuit));
 //            System.out.println(player.getName() + " IS DEALT: \n");
-//            for (Map.Entry<Suit, List<Card>> entry : cardsByType.entrySet()) {
+//            for (Map.Entry<enums.Suit, List<black.Card>> entry : cardsByType.entrySet()) {
 ////                StringBuilder str = new StringBuilder();
 //
 ////                str.append(entry.getValue().size());
 //
-////                Map<Value, List<Card>> cardsByValue = entry.getValue().stream()
-////                        .collect(groupingBy(Card::getValue));
+////                Map<enums.Value, List<black.Card>> cardsByValue = entry.getValue().stream()
+////                        .collect(groupingBy(black.Card::getValue));
 //
 //                System.out.println(entry.getValue().size() + " " + entry.getKey() + " " + entry.getValue());
 //            }
@@ -155,8 +162,8 @@ public class Game {
     }
 }
 
-// Game finished playing in 4 rounds
-// Player
+// black.Game finished playing in 4 rounds
+// black.Player
 
 /*
 TODO

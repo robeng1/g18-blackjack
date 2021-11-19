@@ -1,3 +1,7 @@
+package black;
+
+import enums.Move;
+
 import java.util.List;
 
 public class Round {
@@ -7,7 +11,7 @@ public class Round {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append("Round: ").append(this.round).append(" comprised the following moves  \n");
+        str.append("black.Round: ").append(this.round).append(" comprised the following moves  \n");
         for (Play play :
                 this.plays) {
             str.append(play.toString()).append("\n");

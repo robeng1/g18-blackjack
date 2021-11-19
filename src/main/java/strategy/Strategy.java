@@ -1,3 +1,8 @@
+package strategy;
+
+import black.Card;
+import enums.Move;
+
 import java.util.List;
 
 public abstract class Strategy {
@@ -7,11 +12,11 @@ public abstract class Strategy {
         this.name = name;
     }
 
-    Move getNextMove(List<Card> deck) {
+    public Move calculateNextMove(List<Card> deck) {
         return Move.GO_BUST;
     }
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 }
