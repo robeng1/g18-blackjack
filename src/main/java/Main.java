@@ -17,17 +17,20 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(args));
+        List<Player> players = new ArrayList<>();
         int numberOfPlayers;
         if (args.length <= 0) {
             numberOfPlayers = 3;
+            for (int i = 0; i < numberOfPlayers; i++) {
+                players.add(new Player("player-" + i, new Default("default")));
+            }
         } else {
             if (!hasValidParameters(args)) {
                 System.out.println("Please provide a valid number of parameters");
                 exit(0);
             }
         }
-        List<Player> players = new ArrayList<>();
+
         if (args.length == 1) {
             numberOfPlayers = parseInt(args[0]);
             for (int i = 0; i < numberOfPlayers; i++) {
