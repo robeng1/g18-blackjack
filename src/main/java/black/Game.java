@@ -4,9 +4,9 @@ import enums.GameState;
 import enums.Move;
 import enums.Suit;
 import enums.Value;
+import shuffler.Shuffler;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 import java.util.stream.Collectors;
@@ -19,11 +19,13 @@ public class Game {
     private final List<Round> rounds = new ArrayList<>();
     private Player winner = null;
     private GameState gameState;
+    private Shuffler shuffler;
 
 
-    public Game(List<Player> players) {
+    public Game(List<Player> players, Shuffler shuffler) {
         this.players = players;
         this.gameState = GameState.START;
+        this.shuffler = shuffler;
         this.generateGameDeck();
     }
 
@@ -45,7 +47,6 @@ public class Game {
             this.gameState = GameState.FINISH;
             this.makeWinner();
         }
-
     }
 
     public void makeWinner() {
@@ -58,7 +59,6 @@ public class Game {
                 }
             }
         }
-
     }
 
     public void generateGameDeck() {
@@ -70,15 +70,13 @@ public class Game {
     }
 
     public void start() {
-        Collections.shuffle(this.deck);
+        this.shuffler.shuffle(this.deck);
         this.gameState = GameState.IN_PROGRESS;
         for (Player player : this.players) {
             List<Card> hand = List.of(this.deck.pop(), this.deck.pop());
             player.deal(hand.toArray(Card[]::new));
             dealtCards.addAll(hand);
-
         }
-
     }
 
     public void runGameLoop() {
@@ -103,8 +101,6 @@ public class Game {
             this.rounds.add(round);
             this.updateGameState(round);
         }
-
-
     }
 
     public void printReport() {

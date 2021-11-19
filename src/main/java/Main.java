@@ -1,13 +1,12 @@
 import black.Game;
 import black.Player;
+import shuffler.Pharoah;
+import shuffler.Riffle;
 import strategy.AlwaysHit;
 import strategy.AlwaysStick;
 import strategy.Default;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.System.exit;
@@ -47,7 +46,21 @@ public class Main {
             }
         }
 
-        Game game = new Game(players);
+        Game game = null;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your shuffling mechanism");
+        String shuffleName = scanner.nextLine();
+
+        if (Objects.equals(shuffleName, "riffle")) {
+            Riffle riffle = new Riffle();
+            game = new Game(players, riffle);
+
+        } else if (Objects.equals(shuffleName, "pharoah")) {
+            Pharoah pharoah = new Pharoah();
+            game = new Game(players, pharoah);
+        }
+        assert game != null;
         game.start();
         game.runGameLoop();
         game.printReport();
