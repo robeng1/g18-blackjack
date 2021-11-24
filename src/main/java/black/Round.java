@@ -1,9 +1,27 @@
+package black;
+
+import enums.Move;
+
 import java.util.List;
 
 public class Round {
     private int round;
     private List<Play> plays;
 
+<<<<<<< HEAD:src/main/java/Round.java
+=======
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append("black.Round: ").append(this.round).append(" comprised the following moves  \n");
+        for (Play play :
+                this.plays) {
+            str.append(play.toString()).append("\n");
+        }
+        return str.toString();
+    }
+
+>>>>>>> 26c1e70faf13566928e599528b0f2b64c13fffee:src/main/java/black/Round.java
     public Round(int round, List<Play> plays) {
         this.round = round;
         this.plays = plays;

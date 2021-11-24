@@ -1,3 +1,5 @@
+package black;
+
 import java.util.Comparator;
 
 class PlayerSorter implements Comparator<Player> {
