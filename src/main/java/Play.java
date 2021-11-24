@@ -2,6 +2,11 @@ public class Play {
     private Player player;
     private Move move;
 
+    public Play(Player player, Move move) {
+        this.player = player;
+        this.move = move;
+    }
+
     public Player getPlayer() {
         return player;
     }
@@ -23,8 +28,5 @@ public class Play {
         return this.player.getName() + " played: " + this.move.toString();
     }
 
-    public Play(Player player, Move move) {
-        this.player = player;
-        this.move = move;
-    }
+
 }

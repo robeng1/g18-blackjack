@@ -4,17 +4,6 @@ public class Round {
     private int round;
     private List<Play> plays;
 
-    @Override
-    public String toString() {
-        StringBuilder str = new StringBuilder();
-        str.append("Round: ").append(this.round).append(" comprised the following moves  \n");
-        for (Play play :
-                this.plays) {
-            str.append(play.toString()).append("\n");
-        }
-        return str.toString();
-    }
-
     public Round(int round, List<Play> plays) {
         this.round = round;
         this.plays = plays;
@@ -50,5 +39,16 @@ public class Round {
             }
         }
         return allStick;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        str.append("Round: ").append(this.round).append(" comprised the following moves  \n");
+        for (Play play :
+                this.plays) {
+            str.append(play.toString()).append("\n");
+        }
+        return str.toString();
     }
 }
